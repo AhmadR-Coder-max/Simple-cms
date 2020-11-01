@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_131912) do
+ActiveRecord::Schema.define(version: 2020_11_01_154107) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "first_name", limit: 25
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2020_10_24_131912) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username", limit: 25
     t.index ["username"], name: "index_admin_users_on_username"
+  end
+
+  create_table "admin_users_pages", id: false, force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "page_id"
+    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
