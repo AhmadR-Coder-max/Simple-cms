@@ -1,3 +1,4 @@
+<% @page_title = "Pages" %>
 <div class="pages index">
   <h2>Pages</h2>
 
@@ -6,7 +7,7 @@
   <table class="listing" summary="Page list">
     <tr class="header">
       <td>&nbsp;</td>
-      <td>Subject ID</td>
+      <td>Subject</td>
       <td>Page</td>
       <td>Permalink</td>
       <td>Visible</td>
@@ -16,7 +17,7 @@
     <% @pages.each do |page| %>
       <tr>
         <td><%= page.position %></td>
-        <td><%= page.subject_id %></td>
+        <td><%= page.subject.name if page.subject %></td>
         <td><%= page.name %></td>
         <td><%= page.permalink %></td>
         <td class="center"><%= status_tag(page.visible) %></td>
