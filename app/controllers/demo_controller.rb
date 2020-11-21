@@ -1,6 +1,8 @@
 class DemoController < ApplicationController
   layout 'application'
 
+  before_action :confirm_logged_in
+
   def index
     # render(:template => 'demo/hello')
     # render('demo/hello')
